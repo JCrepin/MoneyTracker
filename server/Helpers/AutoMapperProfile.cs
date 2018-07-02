@@ -10,6 +10,9 @@ namespace WebApi.Helpers
         {
             CreateMap<User, UserDto>();
             CreateMap<UserDto, User>();
+
+            CreateMap<ExpenseCategory, ExpenseCategoryDto>();
+            CreateMap<ExpenseCategoryDto, ExpenseCategory>();
         }
     }
 }
