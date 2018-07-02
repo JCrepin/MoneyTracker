@@ -30,7 +30,11 @@ namespace WebApi
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddCors();
-            services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
+            //services.AddDbContext<DataContext>(x => x.UseInMemoryDatabase("TestDb"));
+            // TODO: add to appsettings.json
+            var connection = @"Server=(localdb)\mssqllocaldb;Database=EFGetStarted.AspNetCore.NewDb;Trusted_Connection=True;ConnectRetryCount=0";
+            services.AddDbContext<DataContext>(options => options.UseSqlServer(connection));
+
             services.AddMvc();
             services.AddAutoMapper();
 
